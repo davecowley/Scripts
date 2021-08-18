@@ -1,0 +1,2 @@
+C:\PSLogScript\RDPConnectionParser.ps1 -ServersToQuery server1, server2  -StartTime "January 1"
+Send-MailMessage -From 'TS04RDP_Log <server@domain.com>' -To 'Systems <systems@domain.com>' -Subject 'RDP Connection Log Ran' -Body "File has been exported to \\server\disks$\RDPLogs" -SmtpServer 'smtp_address_goes_here'
