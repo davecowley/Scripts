@@ -1,0 +1,4 @@
+Get-Mailbox | Get-MailboxPermission -User username 
+
+Set the persons calendar to be visible by everyone.
+Set-MailboxFolderPermission user@domain.com:\Calendar -User Default -AccessRights Reviewer 
