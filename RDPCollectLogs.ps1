@@ -1,2 +1,2 @@
-﻿C:\Powershell\RDPConnectionParser.ps1 -ServersToQuery asm-wh-rds1, asm-wh-hv1, asm-wh-hv2, asm-wh-sql3, asm-wh-nav1, asm-bc1  -StartTime "January 1"
-Send-MailMessage -From 'Remote Desktop Log <bs_noreply@asmtech.com>' -To 'Business Systems <business.systems@asmtech.com>' -Subject 'RDP Connection Log' -Body "File exported to \\asm-wh-rds1\disks$\RDPLogs" -SmtpServer 'asmtech-com.mail.protection.outlook.com'
+﻿C:\Powershell\RDPConnectionParser.ps1 -ServersToQuery server1, server2  -StartTime "January 1"
+Send-MailMessage -From 'Remote Desktop Log <bs_noreply@email.com>' -To 'Business Systems <business.systems@email.com>' -Subject 'RDP Connection Log' -Body "File exported to \\server1\disks$\RDPLogs" -SmtpServer 'server-com.mail.protection.outlook.com'
