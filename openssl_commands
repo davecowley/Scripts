@@ -1,0 +1,12 @@
+1. Generate CSR (Certificate Signing Request) and associated Private Key:
+ openssl req -new -newkey rsa:2048 -nodes -keyout privateKey.key -out signRequest.csr
+2. Extract private key from .pfx file:
+ openssl pkcs12 -in certificate.pfx -nocerts -out privateKey.key -nodes
+3. How to combine public key (.cer, .crt files) with private key (.key file) to get .pfx file:
+ openssl pkcs12 -export -out certificate.pfx -inkey privateKey.key -in publicKey.crt
+4. Convert the p7b into PEM format
+ openssl pkcs7 -in mydomain.p7b -print_certs -out mydomain.pem
+5. Combine PEM with the CRT certificate and private key into a PFX
+ openssl pkcs12 -export -in mydomain.crt -inkey mydomain.key -certfile mydomain.pem -out mydomain.pfx
+6. Convert the certificate from DER to PEM
+ openssl x509 -inform DER -outform PEM -in certificate.cer -out certificate.pem
