@@ -10,3 +10,11 @@
  openssl pkcs12 -export -in mydomain.crt -inkey mydomain.key -certfile mydomain.pem -out mydomain.pfx
 6. Convert the certificate from DER to PEM
  openssl x509 -inform DER -outform PEM -in certificate.cer -out certificate.pem
+
+Graylog - CONVERTING A PKCS #12 (PFX) FILE TO PRIVATE KEY AND CERTIFICATE PAIR
+PKCS #12 key stores (PFX files) are commonly used on Microsoft Windows. This needs to be done only if you have to convert PKCS #12 Keys to be used with Graylog.
+In this example, the PKCS #12 (PFX) file is named keystore.pfx:
+
+$ openssl pkcs12 -in keystore.pfx -nokeys -out graylog-certificate.pem
+$ openssl pkcs12 -in keystore.pfx -nocerts -out graylog-pkcs5.pem
+$ openssl pkcs8 -in graylog-pkcs5.pem -topk8 -out graylog-key.pem
